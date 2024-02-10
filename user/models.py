@@ -2,7 +2,7 @@ from . import db
 
 class Users(db.Model):
     __tablename__ = 'users'
-    _id = db.Column('id', db.Integer, primary_key=True)
+    id = db.Column('id', db.Integer, primary_key=True)
     username = db.Column('username', db.String(50), nullable=False, unique=True)
     gender = db.Column('gender', db.String(1), nullable=False)
     email = db.Column('email', db.String(50), nullable=False)
@@ -14,5 +14,5 @@ class Users(db.Model):
         self.email = email
         self.password = password
         
-    def __repe__(self):
+    def __repr__(self):
         return f'<User {self.username}>'

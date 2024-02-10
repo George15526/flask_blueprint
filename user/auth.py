@@ -4,6 +4,10 @@ from .models import Users
 
 auth = Blueprint('auth', __name__,)
 
+@auth.route('/<username>', methods=['GET', 'POST'])
+def index(username):
+    return render_template('index.html', username=username)
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -15,7 +19,7 @@ def login():
         if user:
             session['username'] = login_username
             flash('Login Success', 'success')
-            return redirect(url_for('index', username = login_username))
+            return redirect(url_for('auth.index', username=login_username))
         else:
             flash('Login Failed, Please Check.', 'danger')
     return render_template('login.html')
