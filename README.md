@@ -1,7 +1,7 @@
 # flask_blueprint
 
 ### Introduction
-Login/Logout page connect mySQL with flask, and seperate files with flask-blueprint firmwork
+Register and Login/Logout page connect mySQL with flask, and seperate files with flask-blueprint firmwork
 
 ### File tree
 
