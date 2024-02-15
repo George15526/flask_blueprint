@@ -15,6 +15,7 @@
     </ul>
     {% endif %}
     {% endwith %}
+    
     <form method="post" action={{ url_for('auth.login') }}>
         <p>Username: 
             <input type="text" name="username"/>

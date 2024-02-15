@@ -36,19 +36,26 @@ def register():
         gender = request.form['gender']
         email = request.form['email']
         password = request.form['password']
+        check_password = request.form['check_password']
         
-        new_user = Users(username=username, 
-                        gender=gender,
-                        email=email,
-                        password_hashed=set_password(password))
+        if check_password == password:
+            
+            new_user = Users(username=username, 
+                            gender=gender,
+                            email=email,
+                            password_hashed=set_password(password))
+            
+            db.session.add(new_user)
+            db.session.commit()
+            
+            flash('Signup Success! Please Login.', 'success')
+            
+            return redirect(url_for('auth.login'))
         
-        db.session.add(new_user)
-        db.session.commit()
+        else:
+            flash('Two password are not the same, please check!')
+            return render_template('register.html')
         
-        flash('Signup Success! Please Login.', 'success')
-        
-        return redirect(url_for('auth.login'))
-    
     return render_template('register.html')
 
 @auth.route('/manage', methods=['GET', 'POST'])

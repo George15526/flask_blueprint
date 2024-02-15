@@ -6,23 +6,37 @@
     <title>Document</title>
 </head>
 <body>
+    {%  with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flash">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
     <form method="post" action={{ url_for('auth.register') }}>
-        <p>Username: 
-            <input type="text" name="username" />
-        </p>
-        <p>Gender: 
-            <select name="gender" id="gender-select">
+        
+        <lebel for="username">Username: </label>
+            <input type="text" name="username" required>
+        <br><br>
+        <lebel for="gender">Gender: </label>
+            <select name="gender" id="gender-select" required>
                 <option value="">--Choose your gender</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
             </select>
-        </p>
-        <p>Email: 
-            <input type="email" name="email" />
-        </p>
-        <p>Password: 
-            <input type="password" name="password" />
-        </p>
+        <br><br>
+        <lebel for="email">Email: </label>
+            <input type="email" name="email" required>
+        <br><br>
+        <lebel for="password">Password:</label> 
+            <input type="password" name="password" required>
+        <br><br>
+        <lebel for="check_password">Check Password:</label> 
+            <input type="password" name="check_password" required>
+        <br><br>
         <p>
             <button type="submit">Register</button>
         </p>
