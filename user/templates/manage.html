@@ -15,7 +15,7 @@
                         <th>Username</th>
                         <th>Gender(M/F)</th>
                         <th>Email</th>
-                        <th>Password</th>
+                        <th>Password_hashed</th>
                 </tr>
                 {% if query != undefined %}
                         {% for data in query %}
@@ -24,7 +24,7 @@
                                 <td>{{ data.username }}</td>
                                 <td>{{ data.gender }}</td>
                                 <td>{{ data.email }}</td>
-                                <td>{{ data.password }}</td>
+                                <td>{{ data.password_hashed }}</td>
                                 <td><button type="submit">Edit</button></td>
                                 <td><button type="submit">Delete</button></td>
                         </tr>

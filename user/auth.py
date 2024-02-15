@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from . import db
 from .models import Users
+from .__init__ import set_password, check_password
 
 auth = Blueprint('auth', __name__,)
 
@@ -14,9 +15,9 @@ def login():
         login_username = request.form['username']
         login_password = request.form['password']
         
-        user = Users.query.filter_by(username = login_username, password = login_password).first()
+        user = Users.query.filter_by(username = login_username).first()
         
-        if user:
+        if check_password(user, login_password):
             session['username'] = login_username
             flash('Login Success', 'success')
             return redirect(url_for('auth.index', username=login_username))
@@ -39,7 +40,7 @@ def register():
         new_user = Users(username=username, 
                         gender=gender,
                         email=email,
-                        password=password)
+                        password_hashed=set_password(password))
         
         db.session.add(new_user)
         db.session.commit()
