@@ -25,9 +25,9 @@ def login():
             flash('Login Failed, Please Check.', 'danger')
     return render_template('login.html')
 
-@auth.route('logout')
+@auth.route('/logout')
 def logout():
-    return '<p>Logout</p>'
+    return render_template('login.html')
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():

@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
+    <title>Register Page</title>
 </head>
 <body>
+    <h1 id="registerPageTitle">Register Page</h1>
     {%  with messages = get_flashed_messages() %}
     {% if messages %}
     <ul class="flash">
@@ -18,23 +20,23 @@
 
     <form method="post" action={{ url_for('auth.register') }}>
         
-        <lebel for="username">Username: </label>
+        <label for="username">Username: </label>
             <input type="text" name="username" required>
         <br><br>
-        <lebel for="gender">Gender: </label>
+        <label for="gender">Gender: </label>
             <select name="gender" id="gender-select" required>
                 <option value="">--Choose your gender</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
             </select>
         <br><br>
-        <lebel for="email">Email: </label>
+        <label for="email">Email: </label>
             <input type="email" name="email" required>
         <br><br>
-        <lebel for="password">Password:</label> 
+        <label for="password">Password:</label> 
             <input type="password" name="password" required>
         <br><br>
-        <lebel for="check_password">Check Password:</label> 
+        <label for="check_password">Check Password:</label> 
             <input type="password" name="check_password" required>
         <br><br>
         <p>

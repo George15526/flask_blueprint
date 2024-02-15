@@ -16,3 +16,11 @@
    justify-content: stretch;
    text-align: center;
 }
+
+#loginPageTitle {
+    text-align: left;
+}
+
+#registerPageTitle {
+    text-align: left;
+}
