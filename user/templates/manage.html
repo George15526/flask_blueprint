@@ -4,32 +4,51 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
+        
         <title>For Management</title>
     </head>
     <body>
         <h1 id="managePageTitle">Manage Page</h1>
-        
-        <table border='1'>
-                <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Gender(M/F)</th>
-                        <th>Email</th>
-                        <th>Password_hashed</th>
-                </tr>
-                {% if query != undefined %}
-                        {% for data in query %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="flash">
+                {% for message in messages %}
+                <li>{{ message }} </li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% if query %}
+        <form method="post" action={{ url_for('auth.delete_datas') }}>
+        <button id="delete_selected">Delete Selected Data(s)</button>
+        <table class="datatable" border='3'>
+                <thead>
                         <tr>
-                                <td>{{ data._id }}</td>
+                                <th><input type="checkbox" name="check_all" value="delete_all">Select All</th>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Gender(M/F)</th>
+                                <th>Email</th>
+                                <th>Password_hashed</th>
+                        </tr>
+                </thead>
+                <tbody>
+                {% for data in query %}
+                        <tr>
+                                <td><input type="checkbox" name="row_check" value="{{ data.id }}"></td>
+                                <td>{{ data.id }}</td>
                                 <td>{{ data.username }}</td>
                                 <td>{{ data.gender }}</td>
                                 <td>{{ data.email }}</td>
                                 <td>{{ data.password_hashed }}</td>
-                                <td><button type="submit">Edit</button></td>
-                                <td><button type="submit">Delete</button></td>
                         </tr>
-                        {% endfor %}
-                {% endif %}
+                {% endfor %}
+                </tbody>
         </table>
+        {% else %}
+		<div style="color:red;"><p>No Record Found</p></div>
+        {% endif %}
+        </form>
     </body>
 </html>

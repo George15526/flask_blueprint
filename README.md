@@ -33,3 +33,6 @@ register and confirm -> send data with flask -> sve into database(mySQL) -> clie
 ### Password hashed
 Use werkzeug hash function to make users' password hashed and secret.
 You can see functions in __init__.py 
+
+### RF
+> 1. https://blog.csdn.net/m0_45319424/article/details/125574439
