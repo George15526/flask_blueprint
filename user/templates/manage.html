@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
-        
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
         <title>For Management</title>
     </head>
     <body>
@@ -20,12 +20,15 @@
         {% endwith %}
 
         {% if query %}
+        <input type="checkbox" name="select_all" onclick="select_all(this)">All
+
         <form method="post" action={{ url_for('auth.delete_datas') }}>
+        
         <button id="delete_selected">Delete Selected Data(s)</button>
         <table class="datatable" border='3'>
                 <thead>
                         <tr>
-                                <th><input type="checkbox" name="check_all" value="delete_all">Select All</th>
+                                <th></th>
                                 <th>ID</th>
                                 <th>Username</th>
                                 <th>Gender(M/F)</th>
