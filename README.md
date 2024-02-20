@@ -36,3 +36,7 @@ You can see functions in __init__.py
 
 ### RF
 > 1. https://blog.csdn.net/m0_45319424/article/details/125574439
+> 2. https://roytuts.com/delete-multiple-rows-from-table-using-flask-ajax-jquery-mysql/#google_vignette
+> 3. https://hackmd.io/@shaoeChen/HJiZtEngG/https%3A%2F%2Fhackmd.io%2Fs%2FSJmhFpXmf
+> 4. https://medium.com/seaniap/python-web-flask-%E4%BD%BF%E7%94%A8%E9%9D%9C%E6%85%8B%E6%AA%94%E6%A1%88-ac00e863a470
+> 5. https://ithelp.ithome.com.tw/articles/10185668
