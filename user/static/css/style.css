@@ -4,17 +4,35 @@
     text-align: center;
 }
 
-.container table {
-    display: flex;
-    justify-content: center;
+table.datatable {
+    border: solid 3px;
+    width: 100%;
+    background: #fff;
 }
 
-.container table tr {
-   display: flex;
-   flex-wrap: nowrap;
-   flex-direction: row; 
-   justify-content: stretch;
-   text-align: center;
+table.datatable tr.odd_col {
+	background: #fff;
+}
+
+table.datatable tr.even_col {
+	background: #ddd;
+}
+
+table.datatable td {
+	font: size 20pt;;
+	padding:5px 10px;
+	border:1px solid #000;
+	text-align: center;
+}
+
+table.datatable th {
+	text-align: center;
+	font-size: 10pt;
+	padding: 10px 10px 7px;   
+	text-transform: uppercase;
+	color: #fff;
+	background-color: black;
+	font-family: sans-serif;
 }
 
 #loginPageTitle {

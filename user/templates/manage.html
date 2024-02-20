@@ -25,7 +25,7 @@
         <form method="post" action={{ url_for('auth.delete_datas') }}>
         
         <button id="delete_selected">Delete Selected Data(s)</button>
-        <table class="datatable" border='3'>
+        <table class="datatable">
                 <thead>
                         <tr>
                                 <th></th>
@@ -38,7 +38,8 @@
                 </thead>
                 <tbody>
                 {% for data in query %}
-                        <tr>
+                {% set row_class = ('even_col' if loop.index % 2 == 0 else'odd_col') %}
+                        <tr class="{{ row_class }}">
                                 <td><input type="checkbox" name="row_check" value="{{ data.id }}"></td>
                                 <td>{{ data.id }}</td>
                                 <td>{{ data.username }}</td>
