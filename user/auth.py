@@ -79,11 +79,7 @@ def delete_datas():
             db.session.delete(delete_user)
             db.session.commit()
         
-        if request.values.get("check_all") == "delete_all":
+        if request.values.get("select_all") == "select_all":
             delete_users = Users.query.all()
-        
-            for delete_user in delete_users:
-                db.session.delete(delete_user)
-                db.session.commit()
           
     return redirect(url_for('auth.manage'))

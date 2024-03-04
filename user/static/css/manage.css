@@ -15,30 +15,25 @@ table.datatable tr.odd_col {
 }
 
 table.datatable tr.even_col {
-	background: #ddd;
-}
-
-table.datatable td {
-	font: size 20pt;;
-	padding:5px 10px;
-	border:1px solid #000;
-	text-align: center;
+	background: #cee6f3;
 }
 
 table.datatable th {
 	text-align: center;
-	font-size: 10pt;
+	font-size: 9.5pt;
 	padding: 10px 10px 7px;   
 	text-transform: uppercase;
 	color: #fff;
-	background-color: black;
+	background-color: #0b259b;
 	font-family: sans-serif;
 }
 
-#loginPageTitle {
-    text-align: left;
-}
-
-#registerPageTitle {
-    text-align: left;
+table.datatable td {
+	max-width: 500px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font: size 20pt;
+	padding:5px 10px;
+	border:1px solid #000;
+	text-align: center;
 }

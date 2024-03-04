@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/manage.css') }}" >
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
         <title>For Management</title>
     </head>
@@ -20,11 +20,11 @@
         {% endwith %}
 
         {% if query %}
-        <input type="checkbox" name="select_all" onclick="select_all(this)">All
-
-        <form method="post" action={{ url_for('auth.delete_datas') }}>
         
-        <button id="delete_selected">Delete Selected Data(s)</button>
+        <input type="checkbox" name="pick_all" onclick="select_all(this)">
+        <form method="post" action={{ url_for('auth.delete_datas') }}>
+        <button id="delete_selected">刪除</button>
+        <div class="container">
         <table class="datatable">
                 <thead>
                         <tr>
@@ -32,12 +32,12 @@
                                 <th>ID</th>
                                 <th>Username</th>
                                 <th>Gender(M/F)</th>
-                                <th>Email</th>
-                                <th>Password_hashed</th>
+                                <th id="email">Email</th>
+                                <th>hashed_password</th>
                         </tr>
                 </thead>
                 <tbody>
-                {% for data in query %}
+                {% for data in query %}affiliation
                 {% set row_class = ('even_col' if loop.index % 2 == 0 else'odd_col') %}
                         <tr class="{{ row_class }}">
                                 <td><input type="checkbox" name="row_check" value="{{ data.id }}"></td>
@@ -45,11 +45,12 @@
                                 <td>{{ data.username }}</td>
                                 <td>{{ data.gender }}</td>
                                 <td>{{ data.email }}</td>
-                                <td>{{ data.password_hashed }}</td>
+                                <td>{{ data.password_hashed}}</td>
                         </tr>
                 {% endfor %}
                 </tbody>
         </table>
+        </div>
         {% else %}
 		<div style="color:red;"><p>No Record Found</p></div>
         {% endif %}

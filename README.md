@@ -32,7 +32,14 @@ register and confirm -> send data with flask -> sve into database(mySQL) -> clie
 
 ### Password hashed
 Use werkzeug hash function to make users' password hashed and secret.
-You can see functions in __init__.py 
+You can see functions in __init__.py
+
+### Show database's `user` table
+#### In phpmyadmin by xampp
+![alt text](image.png)
+
+#### Make the web CMS by myself(page in manage.html)
+![alt text](image-1.png)
 
 ### RF
 > 1. https://blog.csdn.net/m0_45319424/article/details/125574439
@@ -40,3 +47,5 @@ You can see functions in __init__.py
 > 3. https://hackmd.io/@shaoeChen/HJiZtEngG/https%3A%2F%2Fhackmd.io%2Fs%2FSJmhFpXmf
 > 4. https://medium.com/seaniap/python-web-flask-%E4%BD%BF%E7%94%A8%E9%9D%9C%E6%85%8B%E6%AA%94%E6%A1%88-ac00e863a470
 > 5. https://ithelp.ithome.com.tw/articles/10185668
+> 6. https://ithelp.ithome.com.tw/articles/10294537
+> 7. https://im1010ioio.hashnode.dev/css-white-space-word-breakline-clamp
