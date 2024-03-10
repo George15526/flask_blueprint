@@ -49,3 +49,4 @@ You can see functions in __init__.py
 > 5. https://ithelp.ithome.com.tw/articles/10185668
 > 6. https://ithelp.ithome.com.tw/articles/10294537
 > 7. https://im1010ioio.hashnode.dev/css-white-space-word-breakline-clamp
+> 8. https://www.youtube.com/watch?v=4TUsq4GizXk

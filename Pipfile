@@ -8,6 +8,9 @@ flask = "*"
 flask-sqlalchemy = "*"
 pymysql = "*"
 werkzeug = "*"
+flask-mail = "*"
+itsdangerous = "*"
+flask-login = "*"
 
 [dev-packages]
 
