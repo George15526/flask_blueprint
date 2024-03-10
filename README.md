@@ -3,9 +3,11 @@
 ### Introduction
 Register and Login/Logout page connect mySQL with flask, and seperate files with flask-blueprint firmwork
 
-### File tree
+### Folder tree
 
 ``` bash
+│  image-1.png
+│  image.png
 │  main.py
 │  Pipfile
 │  Pipfile.lock
@@ -13,16 +15,27 @@ Register and Login/Logout page connect mySQL with flask, and seperate files with
 │
 └─user
     │  auth.py
+    │  email.py
     │  models.py
+    │  token.py
     │  views.py
     │  __init__.py
     │
     ├─static
-    │  └─css
-    │          style.css
+    │  ├─css
+    │  │      login.css
+    │  │      manage.css
+    │  │      register.css
+    │  │
+    │  └─js
+    │          script.js
     │
     └─templates
+            confirm_email.html
+            index.html
             login.html
+            mail.html
+            mailSend..html
             manage.html
             register.html
 ```
