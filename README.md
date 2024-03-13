@@ -43,6 +43,9 @@ Register and Login/Logout page connect mySQL with flask, and seperate files with
 ### Website process
 register and confirm -> send data with flask -> sve into database(mySQL) -> client: it will jump to the login page, and then you can login with your username and password / auth: you can see all accounts data in manage page, and you can edit every account as well
 
+### Use Case Diagram
+![alt text](image-2.png)
+
 ### Password hashed
 Use werkzeug hash function to make users' password hashed and secret.
 You can see functions in __init__.py
