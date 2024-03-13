@@ -45,6 +45,7 @@ register and confirm -> send data with flask -> sve into database(mySQL) -> clie
 
 ### Use Case Diagram(draw.io)
 ![alt text](image-2.png)
+
 link: https://drive.google.com/file/d/1pV-x2oEkinEvHB7fMI3PLtsO4bfsrWJM/view?usp=sharing
 
 ### Password hashed
