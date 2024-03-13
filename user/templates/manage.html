@@ -34,6 +34,10 @@
                                 <th>Gender(M/F)</th>
                                 <th id="email">Email</th>
                                 <th>hashed_password</th>
+                                <th>registered_on</th>
+                                <th>admin</th>
+                                <th>is_confirmed</th>
+                                <th>confirmed_on</th>
                         </tr>
                 </thead>
                 <tbody>
@@ -46,6 +50,10 @@
                                 <td>{{ data.gender }}</td>
                                 <td>{{ data.email }}</td>
                                 <td>{{ data.password_hashed}}</td>
+                                <td>{{ data.registered_on}}</td>
+                                <td>{{ data.admin}}</td>
+                                <td>{{ data.is_confirmed}}</td>
+                                <td>{{ data.confirmed_on}}</td>
                         </tr>
                 {% endfor %}
                 </tbody>

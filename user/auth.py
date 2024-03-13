@@ -23,14 +23,20 @@ def login():
             login_username = request.form['username']
             login_password = request.form['password']
             
-            user = Users.query.filter_by(username = login_username).first()
+            user = Users.query.filter_by(username=login_username).first()
             
-            if check_password(user, login_password):
-                session['username'] = login_username
-                flash('Login Success', 'success')
-                return redirect(url_for('auth.index', username=login_username))
+            if user.is_confirmed:
+            
+                if check_password(user, login_password):
+                    session['username'] = login_username
+                    flash('Login Success', 'success')
+                    return redirect(url_for('views.home', username=login_username))
+                else:
+                    flash('Login Failed, Please Check.', 'danger')
+                    
             else:
-                flash('Login Failed, Please Check.', 'danger')
+                return redirect(url_for("auth.resend_confirmation", username=login_username))
+            
     return render_template('login.html')
 
 # 登出按鈕函式，登出後會跳轉至登入頁面
@@ -129,16 +135,21 @@ def confirm_email(token):
     return redirect(url_for("auth.register"))
 
 # 重新發送驗證碼
-# @auth.route("/resend")
-# @login_required
-# def resend_confirmation():
-#     if current_user.is_confirmed:
-#         flash("Your account has already been confirmed.", "success")
-#         return redirect(url_for("core.home"))
-#     token = generate_token(current_user.email)
-#     confirm_url = url_for("accounts.confirm_email", token=token, _external=True)
-#     html = render_template("accounts/confirm_email.html", confirm_url=confirm_url)
-#     subject = "Please confirm your email"
-#     send_email(current_user.email, subject, html)
-#     flash("A new confirmation email has been sent.", "success")
-#     return redirect(url_for("accounts.inactive"))
+@auth.route("/resend/<username>")
+def resend_confirmation(username):
+    
+    current_user = Users.query.filter_by(username=username).first()
+    
+    if current_user.is_confirmed:
+        flash("Your account has already been confirmed.", "success")
+        return redirect(url_for("views.home"))
+    else:
+        token = generate_token(current_user.email)
+        confirm_url = url_for("auth.confirm_email", token=token, _external=True)
+        html = render_template("confirm_email.html", confirm_url=confirm_url)
+        subject = "Please confirm your email"
+        send_email(current_user.email, subject, html)
+        
+        flash("A new confirmation email has been sent.", "success")
+    
+    return render_template("inactive.html")
